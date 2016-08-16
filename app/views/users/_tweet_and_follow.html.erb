@@ -2,12 +2,12 @@
     <div class="col-md-4 center link_box">
         
         <% if @current_page == "tweet" then %>
-            <% @tag_setting = "tweet_follow emphasis" %>
+            <% tag_setting = "tweet_follow emphasis" %>
         <% else%>
-            <% @tag_setting = "tweet_follow" %>
+            <% tag_setting = "tweet_follow" %>
         <%end%>
 
-        <div class="<%=@tag_setting%>">
+        <div class="<%= tag_setting%>">
         <%= link_to @user , :class => "profile-status-link" do %>
             <div>ツイート</div><%= @user.microposts.count %>
         <% end %>
@@ -16,12 +16,12 @@
     <div class="col-md-4 center link_box">
 
         <% if @current_page == "followings" then %>
-            <% @tag_setting = "tweet_follow emphasis" %>
+            <% tag_setting = "tweet_follow emphasis" %>
         <% else%>
-            <% @tag_setting = "tweet_follow" %>
+            <% tag_setting = "tweet_follow" %>
         <%end%>
 
-        <div class="<%=@tag_setting%>">
+        <div class="<%= tag_setting%>">
             <%= link_to followings_user_path(current_user) ,:class => "profile-status-link" do %>
                 <div>フォロー</div><%= @user.following_users.count %>
             <% end %>
@@ -30,12 +30,12 @@
     <div class="col-md-4 center link_box">
 
         <% if @current_page == "followers" then %>
-            <% @tag_setting = "tweet_follow emphasis" %>
+            <% tag_setting = "tweet_follow emphasis" %>
         <% else%>
-            <% @tag_setting = "tweet_follow" %>
+            <% tag_setting = "tweet_follow" %>
         <%end%>
 
-        <div class="<%=@tag_setting%>">
+        <div class="<%= tag_setting%>">
             <%= link_to followers_user_path(current_user) ,:class => "profile-status-link" do %>
                 <div>フォロワー</div><%= @user.follower_users.count %>
             <% end %>

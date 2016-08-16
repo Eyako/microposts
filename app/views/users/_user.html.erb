@@ -1,0 +1,7 @@
+<li id="users-<%= user.id %>">
+  <%= link_to gravatar_for(user, size: 50), user %>
+  <span class="user"><%= link_to user.name, user %></span>
+  <span class="timestamp">
+    followed <%= time_ago_in_words(user.created_at) %> ago.
+  </span>
+</li>

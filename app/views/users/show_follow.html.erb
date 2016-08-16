@@ -1,0 +1,22 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <section class="tweet_and_follow">
+      <%= render 'tweet_and_follow' if logged_in? && current_user == User.find_by(id: session[:user_id])%>
+    </section>
+
+    <h3><%=@title%>(<%= @users.count %>)</h3>
+    <% if @users.any? %>
+      <ol class="user_information">
+        <%= render @users %>
+      </ol>
+    <% end %>
+  </div>
+</div>

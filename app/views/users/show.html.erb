@@ -7,7 +7,10 @@
       </h1>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-8 ">
+    <section class="tweet_and_follow">
+      <%= render 'tweet_and_follow' if logged_in? && current_user == User.find_by(id: session[:user_id])%>
+    </section>
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
@@ -15,5 +18,19 @@
         <%= render @microposts %>
       </ol>
     <% end %>
+  </div>
+  <div class="col-md-4">
+      <div class="panel panel-info">
+    <div class="panel-heading">Introduction</div>
+    <div class="panel-body">
+        <%= @user.introduction %>
+    </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">Email</div>
+        <div class="panel-body">
+            <%= @user.email %>
+        </div>
+    </div>
   </div>
 </div>
